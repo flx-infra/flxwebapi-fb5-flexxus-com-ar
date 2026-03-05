@@ -2,10 +2,9 @@ version: '3.6'
 
 services:
   flxwebapi:
-    image: fabreguesm/flxwebapi:2.8.329.6-serverlicencia
-    hostname: flxwebapi-lote-flexxus-com-ar
+    image: fabreguesm/flxwebapi-v4:2.8.329.7
     ports:
-      - '5004:5000'
+      - '5014:5000'
     networks:
       - traefik      
     volumes:
@@ -15,8 +14,6 @@ services:
     deploy:      
       placement:
         constraints: ["${NODE}"] 
-    environment:
-      - URL_LICENSESERVER=http://10.250.0.68:5006/
     logging:
       driver: loki
       options:
@@ -42,4 +39,4 @@ volumes:
 networks:
   traefik:
     external:
-      name: traefik
+      name: traefik-network
