@@ -23,7 +23,7 @@ services:
     volumes:
       - node_data:/home/sftp-user/node-data  
     ports:
-      - "2225:22"
+      - "2230:22"
     command: "sftp-user:admin:1001:1001:node-data"
     deploy:
       placement:
